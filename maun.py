@@ -13,9 +13,9 @@ sl.latex(r"""
 sl.json({"name": "Streamlit", "version": "1.0.0"})
 sl.dataframe({"Column 1": [1, 2, 3], "Column 2": [4, 5, 6]})
 sl.table({"Column 1": [1, 2, 3], "Column 2": [4, 5, 6]})
-sl.image("https://via.placeholder.com/150", caption="Placeholder Image")
-sl.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ", caption="Sample Video")
-sl.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", format="audio/mp3", caption="Sample Audio")
+sl.image("https://via.placeholder.com/150")
+sl.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+sl.audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3", format="audio/mp3")
 sl.checkbox("Check me!")
 sl.radio("Choose an option:", options=["Option 1", "Option 2", "Option 3"])
 sl.selectbox("Select an option:", options=["Option A", "Option B", "Option C"])
@@ -44,5 +44,7 @@ sl.sidebar.file_uploader("Sidebar file uploader", type=["csv", "txt", "pdf"])
 sl.sidebar.button("Sidebar button")
 sl.sidebar.download_button("Sidebar download", data="Sample sidebar data", file_name="sidebar_sample.txt")
 sl.sidebar.progress(75)  # Sidebar progress bar at 75%
-sl.sidebar.spinner("Sidebar loading...")
+with sl.spinner("Sidebar loading..."):
+    # Place the sidebar code inside here
+    sl.sidebar.write("Something in the sidebar")
 sl.sidebar.balloons()  # Show sidebar balloons animation
